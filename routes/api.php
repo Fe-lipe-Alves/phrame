@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\PhotoController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -28,5 +29,7 @@ Route::post('/sanctum/token', function (Request $request) {
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('/album', AlbumController::class);
+
+    Route::apiResource('/photo', PhotoController::class);
 
 });

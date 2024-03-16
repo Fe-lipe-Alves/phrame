@@ -3,16 +3,16 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\File;
 
-class UpdateAlbumRequest extends FormRequest
+class StorePhotoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return $this->album->author_id === Auth::id();
+        return true;
     }
 
     /**
@@ -23,9 +23,9 @@ class UpdateAlbumRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:255'],
-            'description' => ['required', 'max:1000'],
-            'cover_url' => ['nullable'],
+            'title' => ['required', 'max:100'],
+            'description' => ['nullable', 'max:225'],
+            'file' => ['required', File::image()],
         ];
     }
 }
