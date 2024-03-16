@@ -3,6 +3,7 @@
 namespace App\Actions\Album;
 
 use App\Models\Album;
+use Illuminate\Support\Facades\Auth;
 
 class AlbumCreate
 {
@@ -12,6 +13,8 @@ class AlbumCreate
     public static function handle(array $data): Album
     {
         $album = new Album($data);
+
+        $album->author_id = Auth::id();
 
         $album->save();
         $album->refresh();
