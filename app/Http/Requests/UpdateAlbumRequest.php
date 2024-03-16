@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateAlbumRequest extends FormRequest
 {
@@ -11,7 +12,9 @@ class UpdateAlbumRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return
+            $this->album &&
+            $this->album->author_id === Auth::id();
     }
 
     /**
@@ -22,7 +25,9 @@ class UpdateAlbumRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'max:255'],
+            'description' => ['required', 'max:1000'],
+            'cover_url' => ['nullable'],
         ];
     }
 }
