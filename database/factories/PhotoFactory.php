@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,11 @@ class PhotoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'author_id' => User::factory(),
+            'title' => fake()->text(50),
+            'description' => fake()->text(255),
+            'url' => fake()->imageUrl(),
+            'size' => fake()->randomNumber(),
         ];
     }
 }

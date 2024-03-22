@@ -20,6 +20,8 @@ class Photo extends Model
         'size',
     ];
 
+    protected $perPage = 30;
+
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');

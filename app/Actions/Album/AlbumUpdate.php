@@ -8,6 +8,10 @@ class AlbumUpdate
 {
     public static function handle(Album $album, array $data): bool
     {
-        return $album->fill($data)->save();
+        $success = $album->fill($data)->save();
+
+        $album->refresh();
+
+        return $success;
     }
 }

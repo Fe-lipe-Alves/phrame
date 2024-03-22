@@ -28,8 +28,8 @@ Route::post('/sanctum/token', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function () {
 
-    Route::apiResource('/album', AlbumController::class);
+    Route::apiResource('/album', AlbumController::class)->names('album');
 
-    Route::apiResource('/photo', PhotoController::class);
+    Route::apiResource('/photo', PhotoController::class)->names('photo');
 
 });

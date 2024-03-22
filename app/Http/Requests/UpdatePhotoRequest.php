@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\File;
 
 class UpdatePhotoRequest extends FormRequest
 {
@@ -13,6 +12,8 @@ class UpdatePhotoRequest extends FormRequest
      */
     public function authorize(): bool
     {
+        $id = Auth::id();
+
         return $this->photo->author_id === Auth::id();
     }
 

@@ -26,7 +26,7 @@ class PhotoCreate
     {
         $path = $file->store('public/images');
 
-        return !$path ? throw new \Exception('Image not saved') : $path;
+        return ! $path ? throw new \Exception('Image not saved') : $path;
     }
 
     private function size(UploadedFile $file): int

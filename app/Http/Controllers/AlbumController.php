@@ -10,11 +10,12 @@ use App\Http\Requests\StoreAlbumRequest;
 use App\Http\Requests\UpdateAlbumRequest;
 use App\Http\Resources\AlbumResource;
 use App\Models\Album;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
 
 class AlbumController extends Controller
 {
-    public function index()
+    public function index(): LengthAwarePaginator
     {
         return AlbumPaginate::handle();
     }

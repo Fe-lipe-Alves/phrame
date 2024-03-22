@@ -18,11 +18,11 @@ class PhotoController extends Controller
         return PhotoPaginate::handle();
     }
 
-    public function store(StorePhotoRequest $request, PhotoCreate $photoCreate): PhotoResource
+    public function store(StorePhotoRequest $request, PhotoCreate $photoCreate): JsonResponse
     {
         $photo = $photoCreate->handle($request->all());
 
-        return new PhotoResource($photo);
+        return (new PhotoResource($photo))->response()->setStatusCode(201);
     }
 
     public function show(Photo $photo): PhotoResource

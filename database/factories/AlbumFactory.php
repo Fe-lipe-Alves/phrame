@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,9 +19,9 @@ class AlbumFactory extends Factory
     {
         return [
             'title' => $this->faker->title(),
-            //            'author_id' => ,
+            'author_id' => User::factory(),
             'description' => $this->faker->text(),
-            //            'cover_url' => ,
+            'cover_url' => fake()->imageUrl(),
         ];
     }
 }
