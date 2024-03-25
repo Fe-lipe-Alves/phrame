@@ -12,16 +12,21 @@ use App\Http\Resources\AlbumResource;
 use App\Models\Album;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Gate;
 
 class AlbumController extends Controller
 {
     public function index(): LengthAwarePaginator
     {
+        Gate::authorize('viewAny', Album::class);
+
         return AlbumPaginate::handle();
     }
 
     public function store(StoreAlbumRequest $request): AlbumResource
     {
+        Gate::authorize('create', Album::class);
+
         $album = AlbumCreate::handle($request->all());
 
         return new AlbumResource($album);

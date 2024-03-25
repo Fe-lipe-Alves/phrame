@@ -26,6 +26,10 @@ Route::post('/sanctum/token', function (Request $request) {
     return $user->createToken($request->device_name)->plainTextToken;
 });
 
+Route::post('test', function (Request $request) {
+    return response()->json($request->all());
+});
+
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('/album', AlbumController::class)->names('album');
