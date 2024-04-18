@@ -1,39 +1,33 @@
 <x-layouts.guest>
     <main class="w-full lg:w-5/12 bg-white p-8 lg:p-12 lg:rounded-2xl">
         <div class="my-8 text-center">
-            <x-base.title-page>{{ __('Create your account now') }}</x-base.title-page>
+            <x-base.title-page>{{ __('Enter your new password') }}</x-base.title-page>
         </div>
 
-        <form class="flex flex-col gap-6" action="{{ route('register') }}" method="post">
+        @if($errors->any())
+{{--            {{ dd($errors) }}--}}
+        @endif
+
+        @if(session('status'))
+            <div
+                class="bg-green-100 text-green-500 border-green-200 border p-1 mb-3 rounded flex items-center justify-center"
+            >
+                <small>{{ session('status') }}</small>
+            </div>
+        @endif
+
+        <form class="flex flex-col gap-6" action="{{ route('password.update') }}" method="post">
             @csrf
 
-            <x-form.input-with-label
-                name="name"
-                id="name"
-                :label="__('Name')"
-                value="{{ old('name') }}"
-            />
+            <x-base.input-base name="token" type="hidden" value="{{ request('token') }}"/>
 
             <x-form.input-with-label
                 name="email"
                 id="email"
                 :label="__('Email')"
                 type="email"
-                value="{{ old('email') }}"
+                value="{{ old('email', request('email')) }}"
             />
-
-            <div class="flex flex-col gap-1">
-                <div class="flex justify-between items-baseline">
-                    <x-base.label-base for="username">{{ __('Username') }}</x-base.label-base>
-                    <small class="mr-1 text-granite-gray">
-                        {{ __('Only letters, numbers and underscore') }}
-                    </small>
-                </div>
-                <x-base.input-base name="username" id="username" value="{{ old('name') }}"/>
-                @error('username')
-                <x-form.input-feedback type="danger" :message="$message"/>
-                @enderror
-            </div>
 
             <div class="flex flex-col gap-1">
                 <div class="flex justify-between items-baseline">

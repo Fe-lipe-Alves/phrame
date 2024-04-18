@@ -6,6 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/password-reset')
+Route::view('/password-reset', 'auth.reset-password')
     ->middleware('guest')
     ->name('password.reset');

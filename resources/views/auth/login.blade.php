@@ -12,6 +12,14 @@
         </div>
         @enderror
 
+        @if(session('status'))
+            <div
+                class="bg-green-100 text-green-500 border-green-200 border p-1 mb-3 rounded flex items-center justify-center"
+            >
+                <small>{{ session('status') }}</small>
+            </div>
+        @endif
+
         <form class="flex flex-col gap-6" action="{{ route('login') }}" method="post">
             @csrf
 
