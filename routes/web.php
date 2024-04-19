@@ -9,3 +9,5 @@ Route::get('/', function () {
 Route::view('/password-reset', 'auth.reset-password')
     ->middleware('guest')
     ->name('password.reset');
+
+Route::get('/send-picture')->name('send-picture');

@@ -23,9 +23,9 @@
         </ul>
     </nav>
 
-    <div class="w-auto lg:w-3/12 justify-end gap-4 flex">
+    <div class="w-auto lg:w-3/12 justify-end items-baseline gap-4 flex">
         <x-base.link-base to="">{{ auth()->user()->name }}</x-base.link-base>
-        <x-base.link-base to="" class="font-semibold">{{ __('Send picture') }}</x-base.link-base>
+        <x-button.link-button :to="route('send-picture')" size="md">{{ __('Send picture') }}</x-button.link-button>
     </div>
 </header>
 
