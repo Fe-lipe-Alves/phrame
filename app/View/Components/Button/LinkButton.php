@@ -13,7 +13,8 @@ class LinkButton extends Component
 
     public function __construct(
         public string $to,
-        public string $size = 'md'
+        public string $size = 'md',
+        public string $color = 'black',
     ) {
     }
 

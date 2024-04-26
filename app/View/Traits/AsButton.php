@@ -8,7 +8,8 @@ trait AsButton
      * Cria uma nova instância.
      */
     public function __construct(
-        public string $size = 'md'
+        public string $size = 'md',
+        public string $color = 'black',
     ) {
 
     }

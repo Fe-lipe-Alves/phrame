@@ -7,3 +7,11 @@
         font-size: 14px;
     }
 }
+
+button.black {
+    @apply bg-raisin-black hover:bg-smoky-black text-anti-flash-white;
+}
+
+button.gray {
+    @apply bg-white hover:bg-anti-flash-white border border-gray-300;
+}

@@ -21,5 +21,7 @@
 
     <x-layouts.footer/>
 </div>
+
+{{ $scripts ?? '' }}
 </body>
 </html>

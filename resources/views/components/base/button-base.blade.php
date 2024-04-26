@@ -1,5 +1,6 @@
 <button
-    class="w-full bg-raisin-black hover:bg-smoky-black rounded text-anti-flash-white disabled:opacity-50 {{ $sized() }}"
+    {{ $attributes->merge(['class' => "w-full rounded disabled:opacity-50 ". $sized()." ".$color]) }}
+    {{ $attributes }}
 >
     {{ $slot }}
 </button>
