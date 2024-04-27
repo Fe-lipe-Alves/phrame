@@ -1,6 +1,7 @@
 <a
     href="{{ $to }}"
-    class="inline-block bg-raisin-black hover:bg-smoky-black rounded text-anti-flash-white disabled:opacity-50 {{ $sized() }}"
+    {{ $attributes->merge(['class' => "button inline-block rounded disabled:opacity-50 flex items-center gap-2 $size $color"]) }}
+    {{ $attributes }}
 >
     {{ $slot }}
 </a>

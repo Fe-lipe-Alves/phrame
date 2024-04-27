@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-size: 14px;
+    }
+}
+
+.gallery-photo:hover {
+    .gallery-photo-description {
+        display: flex;
+    }
+}
+
+button.black, a.button {
+    &.black {
+        @apply bg-raisin-black hover:bg-smoky-black border border-raisin-black text-anti-flash-white;
+    }
+
+    &.gray {
+        @apply bg-gray-50 hover:bg-gray-200 border border-gray-300;
+    }
+
+    &.sm {
+        font-size: theme('fontSize.sm');
+        @apply py-1 px-2;
+    }
+
+    &.md {
+        font-size: theme('fontSize.base');
+        @apply py-2 px-4;
+    }
+
+    &.lg {
+        font-size: theme('fontSize.3xl');
+        @apply py-2 px-4;
+    }
+
+    &.xl {
+        font-size: theme('fontSize.xl');
+        @apply py-3 px-6;
+    }
+}

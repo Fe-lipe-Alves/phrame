@@ -11,7 +11,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('/album', AlbumController::class)->names('album');
 
-    Route::apiResource('/photo', PhotoController::class)->names('photo');
+//    Route::apiResource('/photo', PhotoController::class)->names('photo');
 
     Route::post('test', function (Request $request) {
         return response()->json($request->all());

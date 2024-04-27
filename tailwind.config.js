@@ -13,6 +13,7 @@ export default {
                 'amazon': '#2C7359',
                 'msu-green': '#174031',
                 'anti-flash-white': '#F2F2F2',
+                'taupe-gray': '#898989',
                 'granite-gray': '#525252',
                 'raisin-black': '#262626',
                 'smoky-black': '#0D0D0D',

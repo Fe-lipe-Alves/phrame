@@ -9,20 +9,23 @@ use App\Http\Requests\UpdatePhotoRequest;
 use App\Http\Resources\PhotoResource;
 use App\Models\Photo;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 
 class PhotoController extends Controller
 {
-    public function index(): LengthAwarePaginator
+    public function index(): View
     {
-        return PhotoPaginate::handle();
+        $photos = PhotoPaginate::handle();
+        return view('photos.index', compact('photos'));
     }
 
-    public function store(StorePhotoRequest $request, PhotoCreate $photoCreate): JsonResponse
+    public function store(StorePhotoRequest $request, PhotoCreate $photoCreate): RedirectResponse
     {
-        $photo = $photoCreate->handle($request->all());
+        $photoCreate->handle($request->all());
 
-        return (new PhotoResource($photo))->response()->setStatusCode(201);
+        return response()->redirectToRoute('photo.index');
     }
 
     public function show(Photo $photo): PhotoResource

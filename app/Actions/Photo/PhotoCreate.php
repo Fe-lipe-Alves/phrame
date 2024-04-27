@@ -7,8 +7,14 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
-class PhotoCreate
+readonly class PhotoCreate
 {
+    public function __construct(
+        private PhotoCamCreate $photoCamCreate
+    ) {
+
+    }
+
     public function handle(array $data): Photo
     {
         $photo = new Photo(Arr::only($data, ['title', 'description']));
@@ -18,6 +24,8 @@ class PhotoCreate
         $photo->size = $this->size($data['file']);
 
         $photo->save();
+
+        $this->photoCamCreate->handle($data['cam'], $photo);
 
         return $photo->refresh();
     }

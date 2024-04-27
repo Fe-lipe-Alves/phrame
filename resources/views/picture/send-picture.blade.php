@@ -1,9 +1,10 @@
 <x-layouts.auth>
-    <div class="w-full">
+    <form class="w-full" method="post" enctype="multipart/form-data" action="{{ route('photo.store') }}">
+        @csrf
 
         <div id="drop-zone" class="w-10/12 lg:w-8/12 mx-auto h-32 lg:h-64 bg-zinc-200 flex justify-center items-center text-center">
             <div>
-                <input type="file" id="input-image" name="image" accept="image/jpeg" class="hidden">
+                <input type="file" id="input-image" name="file" accept="image/jpeg" class="hidden">
                 <x-base.button-base id="btn-open-image-piker">
                     <span class="hidden lg:inline">Clique para selecionar a imagem</span>
                     <span class="lg:hidden">Selecione a imagem</span>
@@ -11,6 +12,10 @@
                 <small class="hidden lg:inline">ou a arraste para esta área</small>
                 <br>
                 <small class="text-gray-500">apenas arquivos .jpeg</small>
+                @error('file')
+                <br/>
+                <x-form.input-feedback type="danger" :message="$message"/>
+                @enderror
             </div>
         </div>
 
@@ -24,7 +29,7 @@
                     <x-form.input-with-label label="Título da foto" id="title" name="title"></x-form.input-with-label>
                 </div>
                 <div class="flex-1">
-                    <x-form.input-with-label label="Palavras chaves" id="title" name="title"></x-form.input-with-label>
+                    <x-form.input-with-label label="Palavras chaves" id="title" name="keywords"></x-form.input-with-label>
                     <small class="text-gray-600">Separe as palavras usando ponto e vírgula ";"</small>
                 </div>
             </div>
@@ -37,27 +42,27 @@
 
             <div id="box-technical-data" class="w-full grid grid-cols-2 lg:grid-cols-3 gap-4 items-end hidden">
                 <div class="flex-1">
-                    <x-form.input-with-label label="Marca da câmera" id="title" name="title"></x-form.input-with-label>
+                    <x-form.input-with-label label="Marca da câmera" id="cam_brand" name="cam[brand]"></x-form.input-with-label>
                 </div>
 
                 <div class="flex-1">
-                    <x-form.input-with-label label="Modelo da câmera" id="title" name="title"></x-form.input-with-label>
+                    <x-form.input-with-label label="Modelo da câmera" id="cam_model" name="cam[model]"></x-form.input-with-label>
                 </div>
 
                 <div class="flex-1">
-                    <x-form.input-with-label label="Distância focal (mm)" id="title" name="title"></x-form.input-with-label>
+                    <x-form.input-with-label label="Distância focal (mm)" id="focal_length" name="cam[focal_length]"></x-form.input-with-label>
                 </div>
 
                 <div class="flex-1">
-                    <x-form.input-with-label label="Aperture (f)" id="title" name="title"></x-form.input-with-label>
+                    <x-form.input-with-label label="Aperture (f)" id="cam_open" name="cam[open]"></x-form.input-with-label>
                 </div>
 
                 <div class="flex-1">
-                    <x-form.input-with-label label="ISO" id="title" name="title"></x-form.input-with-label>
+                    <x-form.input-with-label label="ISO" id="cam_iso" name="cam[iso]"></x-form.input-with-label>
                 </div>
 
                 <div class="flex-1">
-                    <x-form.input-with-label label="Velocidade do obturador" id="title" name="title"></x-form.input-with-label>
+                    <x-form.input-with-label label="Velocidade do obturador" id="cam_shutter_speed" name="cam[shutter_speed]"></x-form.input-with-label>
                 </div>
             </div>
 
@@ -75,7 +80,7 @@
                 <x-base.button-base>Salvar</x-base.button-base>
             </div>
         </div>
-    </div>
+    </form>
 
     <x-slot:scripts>
         <script>
