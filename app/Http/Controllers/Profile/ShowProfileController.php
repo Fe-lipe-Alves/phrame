@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Profile;
 
+use App\Actions\Profile\ProfilePhotos;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -12,10 +13,13 @@ class ShowProfileController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function index(User $user): View
+    public function index(User $user, ProfilePhotos $profilePhotos): View
     {
         $view = 'photos';
-        return view('profile.show', compact('user', 'view'));
+
+        $photos = $profilePhotos->handle($user);
+
+        return view('profile.show', compact('user', 'view', 'photos'));
     }
 
     public function photos(User $user): View

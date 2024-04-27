@@ -5,7 +5,7 @@
         <div>
             <img class="w-10 h-10 rounded-full border"
                  src="https://images.unsplash.com/profile-1699665121743-ced1edf9daaaimage?bg=fff&crop=faces&dpr=1&h=150&w=150&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
-                 alt=""
+                 alt="{{ $user->name }}"
             >
         </div>
     @endif
@@ -24,7 +24,7 @@
             to=""
             class="text-white no-underline hover:underline hover:text-white"
         >
-            {{ fake()->text(150) }}
+            {{ $photo->title }}
         </x-base.link-base>
     </div>
 </div>

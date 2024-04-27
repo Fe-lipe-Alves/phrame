@@ -5,7 +5,7 @@ namespace App\Actions\Photo;
 use App\Models\Photo;
 use App\Models\PhotoCam;
 
-class PhotoCamCreate
+final class PhotoCamCreate
 {
     public function handle(array $data, Photo $photo): PhotoCam
     {

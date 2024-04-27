@@ -1,6 +1,6 @@
 <x-layouts.auth>
     <div class="w-full">
-        @include('profile.header')
+        @include('profile.header', compact('user'))
 
         @include('profile.picker-view', compact('user', 'view'))
 

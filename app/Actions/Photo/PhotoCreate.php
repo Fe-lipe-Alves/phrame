@@ -7,7 +7,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
-readonly class PhotoCreate
+final readonly class PhotoCreate
 {
     public function __construct(
         private PhotoCamCreate $photoCamCreate
