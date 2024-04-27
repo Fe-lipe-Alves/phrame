@@ -22,6 +22,11 @@ class Photo extends Model
         'description',
         'url',
         'size',
+        'private',
+    ];
+
+    protected $casts = [
+        'private' => 'boolean'
     ];
 
     protected $perPage = 30;
@@ -36,9 +41,9 @@ class Photo extends Model
         return $this->hasOne(PhotoCam::class);
     }
 
-    public function scopePublic(Builder $query): void
+    public function scopewithPrivate(Builder $query): void
     {
-        $query->where('public', true);
+        $query->where('private', true);
     }
 
     protected function url(): Attribute

@@ -8,7 +8,7 @@
 
         <div class="w-full lg:w-8/12 py-8 gap-5 flex flex-col">
             <div class="flex items-center flex-wrap gap-8">
-                <h1 class="text-3xl lg:text-5xl font-bold">{{ auth()->user()->name }}</h1>
+                <h1 class="text-3xl lg:text-5xl font-bold">{{ $user->name }}</h1>
 
                 <div class="flex items-center gap-4 self-end">
                     <form action="" method="post" class="w-fit">

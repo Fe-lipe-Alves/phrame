@@ -14,7 +14,11 @@
 </head>
 <body class="text-raisin-black font-inter">
 <div class="w-full min-h-screen flex flex-col items-center bg-white">
-    <x-layouts.headers.header-auth/>
+    @auth
+        <x-layouts.headers.header-auth/>
+    @else
+        <x-layouts.headers.header-guest/>
+    @endauth
 
     <div class="flex-1 w-full flex justify-center">
         {{ $slot }}

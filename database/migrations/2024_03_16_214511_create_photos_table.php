@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('url');
             $table->integer('size');
+            $table->boolean('private')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

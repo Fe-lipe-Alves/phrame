@@ -1,3 +1,3 @@
-<label class="ml-1">
+<label class="ml-1" {{ $attributes }}>
     {{ $slot }}
 </label>

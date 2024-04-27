@@ -19,6 +19,8 @@ class ShowProfileController extends Controller
 
         $photos = $profilePhotos->handle($user);
 
+        $user->loadCount(['photos', 'albums']);
+
         return view('profile.show', compact('user', 'view', 'photos'));
     }
 

@@ -24,8 +24,7 @@ class PhotoController extends Controller
     public function store(StorePhotoRequest $request, PhotoCreate $photoCreate): RedirectResponse
     {
         $photoCreate->handle($request->all());
-
-        return response()->redirectToRoute('photo.index');
+        return response()->redirectToRoute('profile.show', ['user' => auth()->user()]);
     }
 
     public function show(Photo $photo): PhotoResource

@@ -14,7 +14,7 @@
     }
 }
 
-button.black, a.button {
+button, a.button {
     &.black {
         @apply bg-raisin-black hover:bg-smoky-black border border-raisin-black text-anti-flash-white;
     }

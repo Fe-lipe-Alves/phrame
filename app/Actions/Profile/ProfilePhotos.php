@@ -14,8 +14,8 @@ final class ProfilePhotos
             ->where('author_id', $user->getKey())
             ->orderBy('created_at', 'desc');
 
-        if ($user->getKey() !== Auth::id()) {
-            $query->public();
+        if ($user->getKey() === Auth::id()) {
+            $query->withPrivate();
         }
 
         return $query->get();

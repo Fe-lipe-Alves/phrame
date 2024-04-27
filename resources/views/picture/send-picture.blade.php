@@ -24,14 +24,19 @@
                 <x-base.title-page>{{ __('Send new image') }}</x-base.title-page>
             </div>
 
-            <div class="w-full flex gap-4 flex-wrap">
-                <div class="flex-1">
+            <div class="w-full flex gap-4 flex-wrap lg:flex-nowrap">
+                <div class="w-12 lg:w-1/2">
                     <x-form.input-with-label label="Título da foto" id="title" name="title"></x-form.input-with-label>
                 </div>
-                <div class="flex-1">
+                <div class="w-12 lg:w-1/2">
                     <x-form.input-with-label label="Palavras chaves" id="title" name="keywords"></x-form.input-with-label>
                     <small class="text-gray-600">Separe as palavras usando ponto e vírgula ";"</small>
                 </div>
+            </div>
+
+            <div>
+                <input type="checkbox" name="private" id="private" checked>
+                <x-base.label-base for="private">{{ __('Private image') }}</x-base.label-base>
             </div>
 
             <div class="flex flex-col gap-1 hidden" id="box-description">

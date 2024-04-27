@@ -8,7 +8,7 @@
                 class="!px-8 rounded-none"
             >
                 <span class="text-lg material-symbols-outlined">photo</span>
-                Fotos 608
+                {{ __('Photos') }} {{ $user->photos_count }}
             </x-button.link-button>
 
             <x-button.link-button
@@ -18,7 +18,7 @@
                 class="!px-8 rounded-none"
             >
                 <span class="text-lg material-symbols-outlined">filter</span>
-                Albuns 13
+                {{ __('Albums') }} {{ $user->albums_count  }}
             </x-button.link-button>
 
             <x-button.link-button
@@ -28,7 +28,7 @@
                 class="!px-8 rounded-none"
             >
                 <span class="text-lg material-symbols-outlined">favorite</span>
-                Curtidas 10052
+                {{ __('Likes') }} {{ $user->likes_count }}
             </x-button.link-button>
         </div>
     </div>

@@ -4,7 +4,7 @@
             to=""
             size="sm"
             color="gray"
-            class="rounded-full hover:bg-gray-100/50 !w-8 h-8 text-white flex place-content-center"
+            class="!bg-transparent border-none rounded-full hover:!bg-gray-100/50 !w-8 h-8 text-white flex place-content-center"
         >
             <span class="text-lg material-symbols-outlined">favorite</span>
         </x-base.button-base>
