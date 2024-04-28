@@ -22,7 +22,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::prefix('profile/@{user:username}')->group(function () {
     Route::get('', [ShowProfileController::class, 'index'])->name('profile.show');
-    Route::get('/photos', [ShowProfileController::class, 'photos'])->name('profile.photos');
+    Route::get('/photos', [ShowProfileController::class, 'index'])->name('profile.photos');
     Route::get('/albums', [ShowProfileController::class, 'albums'])->name('profile.albums');
     Route::get('/likes', [ShowProfileController::class, 'likes'])->name('profile.likes');
 });

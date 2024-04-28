@@ -35,7 +35,7 @@
             </div>
 
             <div>
-                <input type="checkbox" name="private" id="private" checked>
+                <input type="checkbox" name="private" id="private">
                 <x-base.label-base for="private">{{ __('Private image') }}</x-base.label-base>
             </div>
 

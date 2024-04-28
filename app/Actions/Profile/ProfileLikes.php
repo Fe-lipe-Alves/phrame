@@ -7,16 +7,16 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 
-final class ProfilePhotos
+final class ProfileLikes
 {
     public function handle(User $user): Builder
     {
         $query = Photo::query()
-            ->withExists(['likedUsers' => function ($query) {
-                $query->where('user_id', Auth::id());
-            }])
+            ->whereHas('likedUsers', function (Builder $query) use ($user) {
+                $query->where('user_id', $user->getKey());
+            })
             ->withCount('likedUsers')
-            ->where('author_id', $user->getKey())
+            ->with('author')
             ->orderBy('created_at', 'desc');
 
         if ($user->getKey() !== Auth::id()) {

@@ -28,7 +28,7 @@
                 class="!px-8 rounded-none"
             >
                 <span class="text-lg material-symbols-outlined">favorite</span>
-                {{ __('Likes') }} {{ $user->likes_count }}
+                {{ __('Likes') }} {{ $user->liked_photos_count }}
             </x-button.link-button>
         </div>
     </div>

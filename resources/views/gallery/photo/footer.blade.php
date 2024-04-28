@@ -17,6 +17,10 @@
             <span class="icon-like text-lg material-symbols-outlined">favorite</span>
             <small class="counter-like">{{ $photo->liked_users_count }}</small>
         @endauth
+
+        @if($photo->private)
+            <span class="text-lg material-symbols-outlined" title="Foto privada">lock</span>
+        @endif
     </div>
 
     @pushOnce('scripts')

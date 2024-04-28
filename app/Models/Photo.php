@@ -52,6 +52,11 @@ class Photo extends Model
         $query->where('private', true);
     }
 
+    public function scopeOnlyPublic(Builder $query): void
+    {
+        $query->where('private', false);
+    }
+
     protected function url(): Attribute
     {
         return Attribute::make(
