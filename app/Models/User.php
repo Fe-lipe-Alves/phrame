@@ -48,6 +48,8 @@ class User extends Authenticatable
 
     public function likedPhotos(): BelongsToMany
     {
-        return $this->belongsToMany(Photo::class, 'like_photo_user')->using(LikePhotoUser::class);
+        return $this->belongsToMany(Photo::class, 'like_photo_user')
+            ->using(LikePhotoUser::class)
+            ->orderByPivot('created_at', 'desc');
     }
 }

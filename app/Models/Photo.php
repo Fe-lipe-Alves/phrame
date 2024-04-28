@@ -44,7 +44,9 @@ class Photo extends Model
 
     public function likedUsers(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'like_photo_user')->using(LikePhotoUser::class);
+        return $this->belongsToMany(User::class, 'like_photo_user')
+            ->using(LikePhotoUser::class)
+            ->orderByPivot('created_at', 'desc');
     }
 
     public function scopeWithPrivate(Builder $query): void
