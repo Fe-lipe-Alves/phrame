@@ -2,4 +2,8 @@
     @foreach($photos as $photo)
         @include('gallery.photo.index', compact('user', 'photo'))
     @endforeach
+
+    @pushonce('scripts')
+{{--        @include('gallery.details.index')--}}
+    @endpushonce
 </div>
