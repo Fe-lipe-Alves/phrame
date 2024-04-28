@@ -10,7 +10,7 @@
 
 .gallery-photo:hover {
     .gallery-photo-description {
-        display: flex;
+        visibility: visible;
     }
 }
 
@@ -42,4 +42,12 @@ button, a.button {
         font-size: theme('fontSize.xl');
         @apply py-3 px-6;
     }
+}
+
+.to-fill-in {
+    font-variation-settings: 'FILL' 1;
+}
+
+.to-fill-out {
+    font-variation-settings: 'FILL' 0;
 }

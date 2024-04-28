@@ -1,4 +1,4 @@
-<div class="gallery-photo-description text-sm w-full absolute hidden gap-2 top-0 p-2 bg-gradient-to-b from-gray-900/50">
+<div class="gallery-photo-description text-sm w-full absolute invisible flex gap-2 top-0 p-2 bg-gradient-to-b from-gray-900/50">
     @if($photo->author)
         <div>
             <img class="w-10 h-10 rounded-full border"

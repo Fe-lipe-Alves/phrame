@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
@@ -41,7 +42,12 @@ class Photo extends Model
         return $this->hasOne(PhotoCam::class);
     }
 
-    public function scopewithPrivate(Builder $query): void
+    public function likedUsers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'like_photo_user')->using(LikePhotoUser::class);
+    }
+
+    public function scopeWithPrivate(Builder $query): void
     {
         $query->where('private', true);
     }

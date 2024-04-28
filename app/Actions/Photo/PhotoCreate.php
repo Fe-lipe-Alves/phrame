@@ -19,7 +19,7 @@ final readonly class PhotoCreate
     {
         $photo = new Photo(Arr::only($data, ['title', 'description']));
 
-        $photo->public = isset($data['private']);
+        $photo->private = isset($data['private']);
         $photo->author_id = Auth::id();
         $photo->url = $this->storeFile($data['file']);
         $photo->size = $this->size($data['file']);

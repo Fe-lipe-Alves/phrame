@@ -3,5 +3,6 @@
 
     <img src="{{ $photo->url }}" alt="{{ $photo->title }}">
 
+
     @include('gallery.photo.footer')
 </div>
