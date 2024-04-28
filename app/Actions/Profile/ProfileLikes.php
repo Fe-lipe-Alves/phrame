@@ -15,6 +15,9 @@ final class ProfileLikes
             ->whereHas('likedUsers', function (Builder $query) use ($user) {
                 $query->where('user_id', $user->getKey());
             })
+            ->withExists(['likedUsers' => function ($query) {
+                $query->where('user_id', Auth::id());
+            }])
             ->withCount('likedUsers')
             ->with('author')
             ->orderBy('created_at', 'desc');

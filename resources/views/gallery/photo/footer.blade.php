@@ -7,7 +7,7 @@
                 size="sm"
                 title="{{ $photo->liked_users_exists ? 'Remover Gostei' : 'Marcar como Gostei' }}"
                 color="gray"
-                onClick="handleLike(this, '{{ $photo->id }}')"
+                onClick="handleLike(this, '{{ route('photo.like', compact('photo')) }}')"
                 class="btn-like !bg-transparent border-none rounded-full hover:!bg-gray-100/50 h-8 text-white flex place-content-center"
             >
                 <span class="icon-like text-lg material-symbols-outlined {{ $photo->liked_users_exists ? 'to-fill-in' : '' }}">favorite</span>
@@ -24,7 +24,6 @@
     </div>
 
     @pushOnce('scripts')
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
         <script>
             function toggleLike(button, liked) {
                 const span = button.querySelector('.icon-like');
@@ -36,10 +35,10 @@
                 counter.innerHTML = parseInt(counter.innerHTML) + (!liked ? -1 : 1);
             }
 
-            function handleLike(button) {
+            function handleLike(button, url) {
                 button.disabled = true
 
-                axios.post('{{ route('photo.like', compact('photo')) }}')
+                axios.post(url)
                     .then((response) => toggleLike(button, response.data?.action?.attached?.length))
                     .finally(() => button.disabled = false)
             }

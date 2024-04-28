@@ -28,7 +28,7 @@
     <x-layouts.footer/>
 </div>
 
-@vite('resources/css/app.js')
+@vite('resources/js/app.js')
 {{ $scripts ?? '' }}
 @stack('scripts')
 </body>
