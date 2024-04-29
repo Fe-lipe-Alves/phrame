@@ -4,6 +4,7 @@ use App\Http\Controllers\LikePhotoController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\Picture\SendPictureController;
 use App\Http\Controllers\Profile\ShowProfileController;
+use App\Http\Controllers\SendPhotoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,6 +19,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/send-picture', SendPictureController::class)->name('picture.send');
 
     Route::apiResource('/photo', PhotoController::class)->names('photo');
+
+    Route::get('/send-photo', [SendPhotoController::class, 'index'])->name('photo.send');
+    Route::post('/send-photo', [SendPhotoController::class, 'store'])->name('photo.store');
 });
 
 Route::prefix('profile/@{user:username}')->group(function () {
