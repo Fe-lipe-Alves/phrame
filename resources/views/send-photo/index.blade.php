@@ -55,7 +55,10 @@
                     @enderror
                 </div>
 
-                <div id="preview-images" class="flex flex-wrap gap-2">
+                <div id="preview-images" class="flex flex-wrap">
+                    <div id="box-preview-large" class="w-full h-56 flex place-content-center">
+                        <img src="" alt="" style="display: none">
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,7 +66,7 @@
 
     <x-slot:scripts>
         <script>
-            const routePhotoStore = '{{ route('photo.store') }}'
+            const routePhotoStore = '{{ route('photo.store-image') }}'
         </script>
         @vite('resources/js/send-photo/send-photo.js')
     </x-slot:scripts>

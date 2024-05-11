@@ -1,7 +1,12 @@
 let previews
 
 function loadDetailsToImage(id) {
-    console.log('carregando dados para ID ', id)
+    const preview = previews.find(elem => elem.id === id)
+
+    const imgLarge = document.querySelector('#box-preview-large>img')
+
+    imgLarge.setAttribute('src', preview.src)
+    imgLarge.style.display = 'block'
 }
 
 function setImageActiveById(id) {
@@ -26,17 +31,17 @@ function mountPreviews(files) {
         const src = URL.createObjectURL(file)
 
         const html =
-            `<div class="box-preview-item relative" id="${id}">
+            `<div class="box-preview-item w-2/12 relative flex place-content-center border border-white" id="${id}">
                 <progress class="upload absolute left-0 bottom-0" value="0" max="100"></progress>
                 <button type="button" class="btn-preview-to-details">
-                    <img class="img-preview box-border max-w-full h-32 lg:h-48" src="${src}" alt="">
+                    <img class="img-preview box-border w-auto h-auto max-w-full max-h-32" src="${src}" alt="">
                 </button>
                 <div class="preview-at-config text-white absolute top-0 left-0 w-full h-full z-100 bg-gray-500/40 flex place-content-center">
                     <span class="material-symbols-outlined">radio_button_checked</span>
                 </div>
             </div>`
 
-        previews.push({count, file, html, id})
+        previews.push({count, file, html, id, src})
     }
 
     return previews
@@ -91,6 +96,8 @@ function onChangeInput() {
 
             sendRequest(item)
         })
+
+        console.log(previews)
 
         setFirstActive()
     }

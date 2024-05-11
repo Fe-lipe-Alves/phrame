@@ -21,7 +21,7 @@ Route::middleware(['auth'])->group(function () {
     Route::apiResource('/photo', PhotoController::class)->names('photo');
 
     Route::get('/send-photo', [SendPhotoController::class, 'index'])->name('photo.send');
-    Route::post('/send-photo', [SendPhotoController::class, 'store'])->name('photo.store');
+    Route::post('/send-photo', [SendPhotoController::class, 'storeImage'])->name('photo.store-image');
 });
 
 Route::prefix('profile/@{user:username}')->group(function () {
