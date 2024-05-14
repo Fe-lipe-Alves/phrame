@@ -55,6 +55,10 @@
                     @enderror
                 </div>
 
+                <div>
+                    <progress id="progress-files" class="upload absolute left-0 bottom-0" value="0" max="100"></progress>
+                </div>
+
                 <div id="preview-images" class="flex flex-wrap">
                     <div id="box-preview-large" class="w-full h-56 flex place-content-center">
                         <img src="" alt="" style="display: none">
